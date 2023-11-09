@@ -7,10 +7,10 @@ TASK="$4"
 SERVER="$5"
 VOLUME=${VOLUME:-"$PWD/data"}
 PATH_TO_LORA_WEIGHTS="$6"
-AWS_ROLE="$7"
-AWS_ACCESS_KEY_ID="$8"
-AWS_SECRET_ACCESS_KEY="$9"
-AWS_SESSION_TOKEN="$10"
+#AWS_ROLE="$7"
+#AWS_ACCESS_KEY_ID="$8"
+#AWS_SECRET_ACCESS_KEY="$9"
+#AWS_SESSION_TOKEN="$10"
 
 if [ "$SERVER" == "vllm" ]; then
     python3 -m vllm.entrypoints.openai.api_server --model $HUGGINGFACE_REPO
