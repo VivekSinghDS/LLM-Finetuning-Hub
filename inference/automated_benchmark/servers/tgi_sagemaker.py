@@ -34,5 +34,4 @@ def main(huggingface_repo: str, huggingface_token: str, aws_role: str):
     )
 
 if __name__ == "__main__":
-    main("mariiaponom/redp_3b_class", "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", "arn:aws:iam::823217009914:role/service-role/AmazonSageMaker-ExecutionRole-20180305T161813")
-    #typer.run(main)
+    typer.run(main)

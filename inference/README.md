@@ -20,6 +20,58 @@ With automated deployment you can easily deploy LLama-2, RedPajama, Falcon or Fl
    ```
    python run_inference.py
    ```
+   You will have to specify certain parameters:
+
+   ### Server
+
+      Mappings for the possible servers you can deploy on:
+
+      | Server | Parameter name |
+      |-----------------|-----------------|
+      | vLLM     | ```vllm```     |
+      | Text Generation Inference     | ```tgi```     |
+      | Ray     | ```ray```     |
+      |Triton Inference Server with vLLM backend | ```triton_vllm```|
+      |Text Generation Inference on Amazon SageMaker | ```tgi_sagemaker```|
+
+   ### Path to the model
+
+   In case of deploying on Ray you can load the model through local folder.
+
+   ### HuggingFace token
+
+   Read/Write token for your HuggingFace account.
+
+   ### HuggingFace repository
+
+   The model repository on HuggingFace that stores model files. Pass in the format ```username/repo_name```. 
+
+   ### Model type
+
+   Mappings for different model types.
+      | Model      | Type    |
+      |------------|---------|
+      | Flan-T5       | flan |
+      | Falcon-7B     | falcon  |
+      | RedPajama  | red_pajama  |
+      | LLama-2      | llama  |
+   
+   ### Task
+
+   You should specify task your model was trained for, either ```classification``` or ```summarization```.
+
+   ### AWS related parameters
+
+   In case you decide to deploy on TGI on Amazon Sagamaker you will have to pass next parameters:
+
+   ```aws_role```
+   <br>
+   ```aws_access_key_id```
+   <br>
+   ```aws_secret_access_key```
+   <br>
+   ```aws_session_token```
+
 3. Once the server is started, run command for benchmark in a separate window:
 
    ```

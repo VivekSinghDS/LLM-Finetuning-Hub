@@ -16,4 +16,4 @@ chmod u+w ./benchmark_results/raw/llama_7b_class/a10/tgi.txt
 
 sudo ./run_load_testing.sh $MODEL_TYPE $TASK $SERVER $RESULT_PATH $HUGGINGFACE_REPO
 
-/opt/conda/bin/python ./process_benchmark_data.py $HUGGINGFACE_REPO $TASK $HARDWARE $SERVER $INSTANCE_COST
+python ./process_benchmark_data.py $HUGGINGFACE_REPO $TASK $HARDWARE $SERVER $INSTANCE_COST

@@ -22,11 +22,4 @@ elif [ "$SERVER" == "triton_vllm" ]; then
     json_data="{\"model\":\"$HUGGINGFACE_REPO\",\"disable_log_requests\":\"true\",\"gpu_memory_utilization\":0.9}"
     echo "$json_data" > ./servers/triton_vllm_backend/model_repository/vllm_model/1/model.json
     docker run --gpus all -it --net=host --rm -p 8001:8001 --shm-size=1G --ulimit memlock=-1 --ulimit stack=67108864 -v ${PWD}:/work -w /work nvcr.io/nvidia/tritonserver:23.10-vllm-python-py3 tritonserver --model-store ./servers/triton_vllm_backend/model_repository
-elif [ "$SERVER" == "tgi_sagemaker" ]; then
-    export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
-    export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-    export AWS_SESSION_TOKEN="$AWS_SESSION_TOKEN"
-    export HUGGING_FACE_HUB_TOKEN=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
-    echo $AWS_ACCESS_KEY_ID
-    python3 ./servers/tgi_sagemaker.py $HUGGINGFACE_REPO $TOKEN $AWS_ROLE
 fi

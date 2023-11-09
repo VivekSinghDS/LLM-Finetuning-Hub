@@ -20,7 +20,7 @@ for rps in "${rps_values[@]}"; do
 
         ./vegeta attack -duration=600s -rate=$rps/1s -targets=target.list | ./vegeta report --type=text >> $RESULT_PATH
         
-        sleep 3
+        sleep 5
     done
 
     echo "Load test for $rps RPS completed."
